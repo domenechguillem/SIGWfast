@@ -1,0 +1,6 @@
+SIGWfast.cpp
+setup.py
+SIGWfastExtension.egg-info/PKG-INFO
+SIGWfastExtension.egg-info/SOURCES.txt
+SIGWfastExtension.egg-info/dependency_links.txt
+SIGWfastExtension.egg-info/top_level.txt
