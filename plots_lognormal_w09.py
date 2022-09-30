@@ -30,7 +30,7 @@ krangedirac=[]
 OMEGAdirac=[]
 for row in arr:
 	krangedirac.append(np.float(row[0]))
-	OMEGAdirac.append(np.float(row[1])-1*2)
+	OMEGAdirac.append(np.float(row[1])-1*2+np.log10(1.5))
 
 arr = np.loadtxt('data/OMGW09der.dat')
 krangediracder=[]

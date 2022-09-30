@@ -151,7 +151,7 @@ plt.axis([xmin,xmax,ymin,ymax])
 
 #Axes label
 plt.xlabel('$k/k_p$',fontsize=18)
-plt.ylabel('$d\\log\\Omega_{\\rm GW}(w=0.9)/d\\log k$',fontsize=18)
+plt.ylabel('$d\\log\\Omega_{\\rm GW}(w=1/9)/d\\log k$',fontsize=18)
 
 #ax.text(0.2, 0.25, '$0.2$', color='black', fontsize=18)
 #ax.text(10**5, 10**(-2), '$k_{\\rm rh}/k_p=10^{-2}$', color='black', fontsize=18,
