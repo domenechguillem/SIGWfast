@@ -23,6 +23,23 @@ rc('axes', linewidth=2)
 #rc('font',**{'family':'serif','serif':['Palatino']})
 #rc('text', usetex=True)
 
+
+
+arr = np.loadtxt('data/OMGW09.dat')
+krangedirac=[]
+OMEGAdirac=[]
+for row in arr:
+	krangedirac.append(np.float(row[0]))
+	OMEGAdirac.append(np.float(row[1])-1*2)
+
+arr = np.loadtxt('data/OMGW09der.dat')
+krangediracder=[]
+OMEGAdiracder=[]
+for row in arr:
+	krangediracder.append(np.float(row[0]))
+	OMEGAdiracder.append(np.float(row[1]))
+
+
 data = np.load('data/OmegaGW_of_k_LN_001_w_09_precise.npz')
 lst=data.files
 krange001nolog=data[lst[0]]
@@ -57,6 +74,7 @@ OMEGA01der=OMEGA01interpolder(krange01)
 plt.plot(krange01,OMEGA01,lw=2,color="green",label="$\\Delta=0.1$")
 plt.plot(krange005,OMEGA005,lw=2,color="red",label="$\\Delta=0.05$")
 plt.plot(krange001,OMEGA001,lw=2,color="blue",label="$\\Delta=0.01$")
+plt.plot(krangedirac,OMEGAdirac,lw=2,color="black",label="$\\delta$")
 
 
 
@@ -112,6 +130,7 @@ plt.gcf().clear()
 plt.plot(krange01nolog,OMEGA01der,lw=2,color="green",label="$\\Delta=0.1$")
 plt.plot(krange005nolog,OMEGA005der,lw=2,color="red",label="$\\Delta=0.05$")
 plt.plot(krange001nolog,OMEGA001der,lw=2,color="blue",label="$\\Delta=0.01$")
+plt.plot(krangediracder,OMEGAdiracder,lw=2,color="black",label="$\\delta$")
 
 
 
