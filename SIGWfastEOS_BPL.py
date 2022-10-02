@@ -21,7 +21,7 @@ from scipy.interpolate import interp1d
 
 ### GWfast
 sys.path.append('libraries/')
-import sdintegral as sd
+import sdintegral_precise as sd
 
 #=============================================================================#
                               # CONFIGURATION #
@@ -30,7 +30,7 @@ import sdintegral as sd
 # Name of file where Omega_GW(k) is to be stored as a .npz file in the data 
 # subdirectory. The k-values and Omega-GW-values will be stored with keywords 
 # 'karray' and 'OmegaGW' respectively.   
-filenameGW = 'OmegaGW_of_k_BPL_nuv5'
+filenameGW = 'OmegaGW_of_k_BPL_w19_nIR_1'
 
 # Choose whether to regenerate the data. If True, Omega_GW(k) is recomputed.
 # If False, the data in data/filenameGW.npz is plotted and new data is only   
@@ -58,13 +58,13 @@ filenamePz = 'P_of_k'
 Use_Cpp = True #True
 
 # Set equation of state parameter w
-w = 2/3# requires 0 < w < 1 if cs_equal_one = False below
+w = 1/9# requires 0 < w < 1 if cs_equal_one = False below
 
 # Set cs_equal_one = True if the sound speed c_s is unity, i.e. c_s^2=1, as for
 # a universe dominated by a canonical scalar field. 
 # Set cs_equal_one = False for c_s^2=w, i.e. a universe behaving like an 
 # adiabatic perfect fluid, like e.g. for radiation domination (c_s^2=w=1/3).
-cs_equal_one = False #True
+cs_equal_one = True #True
 
 # Set the normalisation factor that multiplies Omega_GW.
 norm = 1 
@@ -109,8 +109,9 @@ P0    = 1 # 2.4*10**(-9) for CMB value
 
 def Pofk(k):
     mu  = 1000
-    nuv = 2
-    P = 0.5*k**4*(1.0-np.tanh(mu*(k-1.0))) + 0.5* k**(-nuv)*(1.0 + np.tanh(mu*(k-1.0)))
+    nuv = 1/2
+    nir= 1
+    P = 0.5*k**nir*(1.0-np.tanh(mu*(k-1.0))) + 0.5* k**(-nuv)*(1.0 + np.tanh(mu*(k-1.0)))
     return P0*P
     
 ###############################################################################
