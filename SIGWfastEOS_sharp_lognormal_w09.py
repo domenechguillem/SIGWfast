@@ -21,7 +21,7 @@ from scipy.interpolate import interp1d
 
 ### GWfast
 sys.path.append('libraries/')
-import sdintegral_sharp as sd
+import sdintegral_precise as sd
 
 #=============================================================================#
                               # CONFIGURATION #
@@ -30,7 +30,7 @@ import sdintegral_sharp as sd
 # Name of file where Omega_GW(k) is to be stored as a .npz file in the data 
 # subdirectory. The k-values and Omega-GW-values will be stored with keywords 
 # 'karray' and 'OmegaGW' respectively.   
-filenameGW = 'data_tinyPBH/b_lognor_w_01'
+filenameGW = 'data_tinyPBH/s_lognor_w_01'
 
 # Choose whether to regenerate the data. If True, Omega_GW(k) is recomputed.
 # If False, the data in data/filenameGW.npz is plotted and new data is only   
@@ -72,7 +72,7 @@ norm = 1
 # Set limits kmin and kmax of the interval in k for which Omega_GW is to be 
 # computed. Also set the number nk of entries of the k-array.
 kmin = 0.000001 # | in some arbitrary reference units
-kmax = 3.00 # | denoted by k_{ref} in the plots.
+kmax = 2.00 # | denoted by k_{ref} in the plots.
 nk   = 2500
 
 # Declare the array of k-values
@@ -103,7 +103,7 @@ komega = np.linspace(kmin,kmax,nk,dtype=np.float64) # linear spacing
 
 # Define the model parameters as global variables with fixed values.
 # Duration delta of the turn in e-folds
-Delta = 0.1
+Delta = 0.01
 # Normalisation of power spectrum 
 P0    = 1 # 2.4*10**(-9) for CMB value
 

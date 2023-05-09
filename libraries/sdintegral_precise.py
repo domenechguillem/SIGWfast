@@ -46,11 +46,11 @@ def arrays_w(w,karray,epsilon=10**(-10),nd=200):
     power= 10
     w    = vv(w)
     smax = 10/kmin
-    ns1  = 400
+    ns1  = 600
     if floor(smax)<800:
-        ns2 = 1200
+        ns2 = 1600
     else:
-        ns2 = floor(1200+np.sqrt(smax-800))
+        ns2 = floor(1600+np.sqrt(smax-800))
     d   =  np.linspace(0,1-epsilon,nd)
     dd1 =  np.repeat(d,ns1)
     dd2 =  np.repeat(d,ns2)

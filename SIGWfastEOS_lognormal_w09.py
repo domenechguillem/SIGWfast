@@ -21,7 +21,7 @@ from scipy.interpolate import interp1d
 
 ### GWfast
 sys.path.append('libraries/')
-import sdintegral as sd
+import sdintegral_sharp as sd
 
 #=============================================================================#
                               # CONFIGURATION #
