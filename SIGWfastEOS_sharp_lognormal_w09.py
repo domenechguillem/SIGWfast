@@ -30,7 +30,7 @@ import sdintegral_sharp as sd
 # Name of file where Omega_GW(k) is to be stored as a .npz file in the data 
 # subdirectory. The k-values and Omega-GW-values will be stored with keywords 
 # 'karray' and 'OmegaGW' respectively.   
-filenameGW = 'OmegaGW_of_k_LN_09'
+filenameGW = 'OmegaGW_of_k_LN_w09'
 
 # Choose whether to regenerate the data. If True, Omega_GW(k) is recomputed.
 # If False, the data in data/filenameGW.npz is plotted and new data is only   
@@ -71,9 +71,9 @@ norm = 1
 
 # Set limits kmin and kmax of the interval in k for which Omega_GW is to be 
 # computed. Also set the number nk of entries of the k-array.
-kmin = 0.01 # | in some arbitrary reference units
+kmin = 0.000001 # | in some arbitrary reference units
 kmax = 2.00 # | denoted by k_{ref} in the plots.
-nk   = 10000
+nk   = 1000
 
 # Declare the array of k-values
 komega = np.linspace(kmin,kmax,nk,dtype=np.float64) # linear spacing
@@ -103,7 +103,7 @@ komega = np.linspace(kmin,kmax,nk,dtype=np.float64) # linear spacing
 
 # Define the model parameters as global variables with fixed values.
 # Duration delta of the turn in e-folds
-Delta = 0.001
+Delta = 0.01
 # Normalisation of power spectrum 
 P0    = 1 # 2.4*10**(-9) for CMB value
 
@@ -279,13 +279,13 @@ def compute_w():
     np.savez('data/'+filenameGW, karray=komega, OmegaGW=OmegaGW)
     
     # Plot P(k) used in the last run
-    fig, ax = plt.subplots()
-    ax.plot(kpzeta, Pinter(kpzeta), color='red')
-    ax.set_title(r'$P_\zeta$ vs. $k$')
-    ax.set_xlabel(r'$k \ / \ k_{ref}$')
-    ax.set_ylabel(r'$P_\zeta$')
-    ax.set_xscale('log')
-    ax.set_yscale('log')
+    #fig, ax = plt.subplots()
+    #ax.plot(kpzeta, Pinter(kpzeta), color='red')
+    #ax.set_title(r'$P_\zeta$ vs. $k$')
+    #ax.set_xlabel(r'$k \ / \ k_{ref}$')
+    #ax.set_ylabel(r'$P_\zeta$')
+    #ax.set_xscale('log')
+    #ax.set_yscale('log')
     
     return OmegaGW
     
