@@ -30,7 +30,7 @@ import sdintegral_sharp as sd
 # Name of file where Omega_GW(k) is to be stored as a .npz file in the data 
 # subdirectory. The k-values and Omega-GW-values will be stored with keywords 
 # 'karray' and 'OmegaGW' respectively.   
-filenameGW = 'OmegaGW_of_k_LN_w09'
+filenameGW = 'data_tinyPBH/b_lognor_w_01'
 
 # Choose whether to regenerate the data. If True, Omega_GW(k) is recomputed.
 # If False, the data in data/filenameGW.npz is plotted and new data is only   
@@ -58,7 +58,7 @@ filenamePz = 'P_of_k'
 Use_Cpp = True #True
 
 # Set equation of state parameter w
-w = 0.9 # requires 0 < w < 1 if cs_equal_one = False below
+w = 0.1 # requires 0 < w < 1 if cs_equal_one = False below
 
 # Set cs_equal_one = True if the sound speed c_s is unity, i.e. c_s^2=1, as for
 # a universe dominated by a canonical scalar field. 
@@ -72,8 +72,8 @@ norm = 1
 # Set limits kmin and kmax of the interval in k for which Omega_GW is to be 
 # computed. Also set the number nk of entries of the k-array.
 kmin = 0.000001 # | in some arbitrary reference units
-kmax = 2.00 # | denoted by k_{ref} in the plots.
-nk   = 1000
+kmax = 3.00 # | denoted by k_{ref} in the plots.
+nk   = 2500
 
 # Declare the array of k-values
 komega = np.linspace(kmin,kmax,nk,dtype=np.float64) # linear spacing
@@ -103,7 +103,7 @@ komega = np.linspace(kmin,kmax,nk,dtype=np.float64) # linear spacing
 
 # Define the model parameters as global variables with fixed values.
 # Duration delta of the turn in e-folds
-Delta = 0.01
+Delta = 0.1
 # Normalisation of power spectrum 
 P0    = 1 # 2.4*10**(-9) for CMB value
 
@@ -122,11 +122,11 @@ def Pofk(k):
 # fac^2 in log(k)-space and also sampled more densely by a factor (int(fac))^2.
 # The default value of this factor is chosen as fac=2. 
 fac = 4
-kpzeta = np.linspace(np.amin(komega)/fac, np.amax(komega)*fac,
-                     (len(komega))*(int(fac))**2)
-# Uncomment lines below if logarithmic spacing is desired.
-#kpzeta = np.geomspace(np.amin(komega)/fac, np.amax(komega)*fac,
+#kpzeta = np.linspace(np.amin(komega)/fac, np.amax(komega)*fac,
 #                     (len(komega))*(int(fac))**2)
+# Uncomment lines below if logarithmic spacing is desired.
+kpzeta = np.geomspace(np.amin(komega)/fac, np.amax(komega)*fac,
+                     (len(komega))*(int(fac))**2)
 
 #=============================================================================#
                         # COMPUTATION OF OMEGA_GW #
@@ -397,13 +397,13 @@ def compute_1():
     np.savez('data/'+filenameGW, karray=komega, OmegaGW=OmegaGW)
     
     # Plot P(k) used in the last run
-    fig, ax = plt.subplots()
-    ax.plot(kpzeta, Pinter(kpzeta), color='red')
-    ax.set_title(r'$P_\zeta$ vs. $k$')
-    ax.set_xlabel(r'$k \ / \ k_{ref}$')
-    ax.set_ylabel(r'$P_\zeta$')
-    ax.set_xscale('log')
-    ax.set_yscale('log')
+    #fig, ax = plt.subplots()
+    #ax.plot(kpzeta, Pinter(kpzeta), color='red')
+    #ax.set_title(r'$P_\zeta$ vs. $k$')
+    #ax.set_xlabel(r'$k \ / \ k_{ref}$')
+    #ax.set_ylabel(r'$P_\zeta$')
+    #ax.set_xscale('log')
+    #ax.set_yscale('log')
     
     return OmegaGW
 

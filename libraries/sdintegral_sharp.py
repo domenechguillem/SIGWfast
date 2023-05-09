@@ -64,15 +64,15 @@ def arrays_w(w,karray,epsilon=10**(-10),nd=200):
 
 # Define arrays for the case c_s^2=1. As the kernels do not have a singularity
 # we do not split the s-array. 
-def arrays_1(w,karray,epsilon=10**(-10),nd=100):
+def arrays_1(w,karray,epsilon=10**(-8),nd=100):
     kmin = np.amin(karray)
-    power= 4
+    power= 10
     w    = vv(w)
     smax = 10/kmin
     if floor(smax)<800:
-        ns0 = 800
+        ns0 = 1200
     else:
-        ns0 = floor(800+np.sqrt(smax-800))
+        ns0 = floor(1200+np.sqrt(smax-800))
     d  =  np.linspace(0,1-epsilon,nd)
     dd =  np.repeat(d,ns0)
     s  =  1+epsilon+(smax-1-epsilon)*(np.linspace(0,1,ns0))**(power)
@@ -102,7 +102,7 @@ def arrays_r(karray,epsilon=10**(-10),nd=100):
     ss2 =  np.tile(s2,nd)
     return nd, ns1, ns2, d, dd1, dd2, ss1, ss2
 
-# Define functions I_J^2 and I_Y^2 as given in arxiv:1912.05583:
+# Define functions I_J^2 and I_Y^2 as given in arxiv:   :
     
 # Define function I_J^2 for c_s^2=w and s<1/sqrt(w). As this is zero, we do not  
 # need to use it, so it is commented out. It is included here for completeness.
