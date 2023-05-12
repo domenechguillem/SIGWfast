@@ -30,7 +30,7 @@ import sdintegral_precise as sd
 # Name of file where Omega_GW(k) is to be stored as a .npz file in the data 
 # subdirectory. The k-values and Omega-GW-values will be stored with keywords 
 # 'karray' and 'OmegaGW' respectively.   
-filenameGW = 'data_tinyPBH/s_lognor_w_01'
+filenameGW = 'data_tinyPBH/test_w_13'
 
 # Choose whether to regenerate the data. If True, Omega_GW(k) is recomputed.
 # If False, the data in data/filenameGW.npz is plotted and new data is only   
@@ -58,7 +58,7 @@ filenamePz = 'P_of_k'
 Use_Cpp = True #True
 
 # Set equation of state parameter w
-w = 0.1 # requires 0 < w < 1 if cs_equal_one = False below
+w = 1/3 # requires 0 < w < 1 if cs_equal_one = False below
 
 # Set cs_equal_one = True if the sound speed c_s is unity, i.e. c_s^2=1, as for
 # a universe dominated by a canonical scalar field. 
@@ -71,9 +71,9 @@ norm = 1
 
 # Set limits kmin and kmax of the interval in k for which Omega_GW is to be 
 # computed. Also set the number nk of entries of the k-array.
-kmin = 0.000001 # | in some arbitrary reference units
+kmin = 0.50 # | in some arbitrary reference units
 kmax = 2.00 # | denoted by k_{ref} in the plots.
-nk   = 2500
+nk   = 5000
 
 # Declare the array of k-values
 komega = np.linspace(kmin,kmax,nk,dtype=np.float64) # linear spacing
